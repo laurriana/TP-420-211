@@ -1,6 +1,7 @@
-#addTask{
-    background-color: rebeccapurple;
-    color: gold;
+#addTask {
+    background-color: rgb(255, 109, 172);
+    color: #ffffff;
+    margin-left: .5em;
 }
 
 .sidebar {
@@ -18,55 +19,121 @@
     left: 0;
 }
 
-.w3-sidebar{height:100%;width:200px;background-color:rgb(241, 227, 227);position:fixed!important;z-index:1;overflow:none}
-.w3-bar-block .w3-bar-item{width:100%;display:block;padding:8px 16px;text-align:left;border:none;white-space:normal;float:none;outline:0}
-.w3-bar-block.w3-center .w3-bar-item{text-align:center}.w3-block{display:block;width:100%}
+.w3-sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: rgb(241, 227, 227);
+    position: fixed!important;
+    z-index: 1;
+    overflow: none;
+}
 
-#div1{
+.w3-bar-block .w3-bar-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+}
+
+.w3-bar-block.w3-center .w3-bar-item {
+    text-align: center;
+}
+
+.w3-block {
+    display: block;
+    width: 100%;
+}
+
+#div1 {
     background-color: #a1a73d;
     margin-bottom: 5px;
     margin-top: 5px;
 }
-#div2{
+
+#div2 {
     background-color: #afb634;
     margin-bottom: 5px;
 }
-#div3{
+
+#div3 {
     background-color: rgb(195, 202, 65);
     margin-bottom: 5px;
 }
 
 body {
-    background-color: rgb(150, 148, 148);
+    background-color: #ffffff;
     font-family: Arial, sans-serif;
-   }
-   .container {
+    text-transform: lowercase;
+}
+
+.container {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    border: 1px solid gold;
     border-radius: 5px;
-    background-color: rgb(153, 51, 136);
-    color: gold;
-   }
-   input{
-    background: rgb(253, 253, 253);
-    color: gold;
-   }
-   ::placeholder{
+    background-color: #ffc7de;
+    color: #ff77a0;
+    box-shadow: 0 0 2em #ffc7de;
+}
+
+input[type=text] {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: rgba(#E91E63, .2);
+    border-bottom: .2em solid #E91E63;
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #E91E63;
+    transition: all .3s ease;
+}
+
+input[type=text]:focus {
+	border-bottom: .2em solid #E91E63;
+}
+
+button {
+	padding: .8em;
+    border: none;
+    border-radius: 1em;
+}
+
+#clearAll {
+    background-color: white;
+}
+
+::placeholder {
     color: rgb(39, 39, 34);
     opacity: 0.7;
-   }
-   button{
-    background-color: #a1a73d;
-    color: #000080;
-   }
-.centrerhaut{
+}
+
+button {
+    background-color: #ffb7db;
+    color: #f0768e;
+}
+
+.centrerhaut {
     text-align: center;
 }
-#taskDone{
+
+#taskDone {
     text-decoration: line-through;
     opacity: 0.7;
 }
+#clearAll {
+    display: block;
+    margin: 0 auto;
+}
 
 
+h1 {
+    color: #ff86aa;
+}
+
+h1:hover {
+    color: #fd6794;
+}

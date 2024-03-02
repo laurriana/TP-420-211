@@ -1,8 +1,13 @@
-////////////////// Obtenez le modal d'inscription ///////////////////////
-function userInfo (){
+const showPopup = document.querySelector(".homepageBtns");
+const popupContainer = document.querySelector(".popup-container");
+const closeBtn = document.querySelector("#close-button");
 
-  // Todo
-  document.location='accueil.html';
+showPopup.onclick = () => {
+  popupContainer.classList.add("active");
 }
 
-const
+closeBtn.onclick = () => {
+  popupContainer.classList.remove("active");
+}
+
+// sign up form (my head hurts from this ouchiiii im so tired)

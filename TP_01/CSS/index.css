@@ -8,8 +8,6 @@
   font-display: swap;
 }
 
-
-
 #wrapper {
   display: flex;
   align-items: center;
@@ -37,6 +35,13 @@
 
   font-family: "Pixelify Sans", sans-serif;
   letter-spacing: 0.1rem;
+
+  filter: brightness(1);
+}
+
+.homepageBtns:hover {
+  filter: brightness(1.127);
+  cursor: pointer;
 }
 
 p {
@@ -49,13 +54,19 @@ p {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #f753b84f;
+  background: #3a3a3a2a;
   display: flex;
   justify-content: center;
   align-items: center;
 
   opacity: 0;
   pointer-events: none;
+}
+
+.popup-container.active {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.4s ease;
 }
 
 .popup-container .popup-box {
@@ -65,6 +76,13 @@ p {
   box-shadow: 0 0 10px #0000001a;
   text-align: center;
   padding: 30px;
+  transform: scale(0);
+}
+
+.popup-container.active .popup-box {
+  transform: scale(1);
+  transition: 0.4s ease;
+  transition-delay: 0.25s;
 }
 
 .popup-box #close-button {

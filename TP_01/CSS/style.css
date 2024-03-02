@@ -102,10 +102,6 @@ button {
     border-radius: 1em;
 }
 
-#clearAll {
-    background-color: white;
-}
-
 ::placeholder {
     color: rgb(39, 39, 34);
     opacity: 0.7;
@@ -124,16 +120,25 @@ button {
     text-decoration: line-through;
     opacity: 0.7;
 }
-#clearAll {
-    display: block;
-    margin: 0 auto;
+.lowButtons {
+    background-color: white;
+}
+
+#underBar {
+    padding: 0.2em;
+    text-align: center;
 }
 
 
 h1 {
-    color: #ff86aa;
+    color: #de3a6b;
+    transition: all .15s ease-in-out;
 }
 
 h1:hover {
-    color: #fd6794;
+    color: #ab234c;
+}
+
+.listItem {
+    margin-left: 5px;
 }

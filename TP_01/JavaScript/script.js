@@ -11,6 +11,7 @@ const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTask");
 const taskList = document.getElementById("taskList");
 const clearAll = document.getElementById("clearAll");
+const todos = [];
 
 var task = "undone task ";
 var done = "task done ";
@@ -62,6 +63,10 @@ function addTask() {
         deleteBtn.addEventListener("click", () => {
             listItem.remove();
         });
+
+    // add to list
+    todos.push(taskText)
+    
     } else {
         alert("Veuillez entrer une tâche valide.");
     }
@@ -72,4 +77,50 @@ function addTask() {
     });
 }
 
+// sort
+function sortItems() {
+    todos.sort((a, b) => a.localeCompare(b));
 
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.firstChild)
+    }
+
+    todos.forEach((todo) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = todo;
+
+        taskList.appendChild(listItem);
+
+        // Add buttons for the new list item
+        const doneBtn = document.createElement("img");
+        doneBtn.setAttribute("src", "./Images/icons8-checkmark-50.png");
+        doneBtn.setAttribute('height', '18px');
+        doneBtn.setAttribute('width', '18px');
+        listItem.appendChild(doneBtn);
+
+        doneBtn.addEventListener("click", () => {
+            listItem.id = "taskDone";
+        });
+
+        const editBtn = document.createElement("img");
+        editBtn.setAttribute("src", "./Images/icons8-edit-file-50.png");
+        editBtn.setAttribute('height', '18px');
+        editBtn.setAttribute('width', '18px');
+        listItem.appendChild(editBtn);
+
+        editBtn.addEventListener("click", () => {
+            taskInput.value = listItem.textContent;
+            listItem.remove();
+        });
+
+        const deleteBtn = document.createElement("img");
+        deleteBtn.setAttribute("src", "./Images/icons8-delete-60.png");
+        deleteBtn.setAttribute('height', '18px');
+        deleteBtn.setAttribute('width', '18px');
+        listItem.appendChild(deleteBtn);
+
+        deleteBtn.addEventListener("click", () => {
+            listItem.remove();
+        });
+    });
+}

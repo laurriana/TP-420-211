@@ -1,256 +1,89 @@
-#divParent{
-  background-color: #ee8aa839;
-  margin: auto;
-  margin-top: 35vh;
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  height: 20vh; 
-  width: 44vw;
-  border-radius: 1.5em;
+@import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Pixelify+Sans:wght@400..700&display=swap");
+
+@font-face {
+  font-family: "Hellovetica";
+  src: url("../fonts/HelloveticaReg.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-/********************************************************** CSS signup *****************************************************/
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+
+#wrapper {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
 }
 
-#butInscription{
-  background-color: #ffa8d1;
-  border-width: 2px;
-  border-radius: 12px;
-  filter: drop-shadow(0 0 0.75rem #fea9c7);
-}
-
-/* Add a background color when the inputs get focus */
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-button:hover {
-  opacity:1;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
-
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
-}
-
-/* Add padding to container elements */
-.container {
-  padding: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #474e5d;
-  padding-top: 50px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* Style the horizontal ruler */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
- 
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 35px;
-  top: 15px;
-  font-size: 40px;
-  font-weight: bold;
-  color: #f1f1f1;
-}
-
-.close:hover,
-.close:focus {
-  color: #f44336;
-  cursor: pointer;
-}
-
-/* Clear floats */
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-     width: 100%;
-  }
-}
-
-/********************************************************** CSS login *****************************************************/
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-#butConnexion{
-  background-color: #ffa8d1;
-  border-width: 2px;
-  border-radius: 12px;
-  filter: drop-shadow(0 0 0.75rem #fea9c7);
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 0.5em 1em;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
+.title {
   text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
+  font-family: "Jacquarda Bastarda 9", cursive;
+}
+/* buttons */
+.homepageBtns {
+  background-color: #ee8aa8;
+  color: white;
+  border: none;
+  border-radius: 1em;
+  text-align: center;
+  display: inline-block;
+  transition-duration: 0.4s;
+  box-shadow: 0 0 16px 0 #ee8aa88e;
+
+  padding: 1em;
+  margin: 0.5em;
+
+  font-family: "Pixelify Sans", sans-serif;
+  letter-spacing: 0.1rem;
 }
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+p {
+  font-family: "Hellovetica", monospace;
+  font-size: 0.05em;
 }
 
-.container {
-  padding: 1.5em;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
+/* popup container */
+.popup-container {
   position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  background: #f753b84f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
 }
 
-.close:hover,
-.close:focus {
-  color: red;
+.popup-container .popup-box {
+  width: 450px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0000001a;
+  text-align: center;
+  padding: 30px;
+}
+
+.popup-box #close-button {
+  width: 100%;
+  height: 45px;
+  background-color: lightpink;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 10px #0000001a;
   cursor: pointer;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Pixelify Sans", sans-serif;
+  margin-top: 1.27em;
+  transition: 0.22s ease-in-out;
 }
 
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
+.popup-box #close-button:hover {
+  text-shadow: #ffffffc1 0px 0px 10px;
 }

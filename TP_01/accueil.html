@@ -30,9 +30,13 @@
             <h1>task list</h1>
             <input type="text" id="taskInput" placeholder="Nouvelle tâche...">
             <button id="addTask">Ajouter</button>
-            </div>
+        </div>
             <ul id="taskList"></ul>
-            <button id="clearAll">Effacer LocalStorage</button>
+            <div id="underBar">
+                <button id="clearAll" class="lowButtons">Effacer LocalStorage</button>
+
+                <button id="sort" class="lowButtons" onclick="sortItems()">Trier</button>
+        </div>
         </div>
 
 

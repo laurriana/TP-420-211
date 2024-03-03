@@ -1,126 +1,107 @@
-function save() {
-    let nom = document.getElementById("lastname").value;
-    let prenom = document.getElementById("firstname").value;
-    alert(nom + ", " + prenom)
-    localStorage.setItem("nom", nom);
-    localStorage.setItem("prénom", prenom);
-    window.location.replace(acceuil.html);
-}
-
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTask");
 const taskList = document.getElementById("taskList");
 const clearAll = document.getElementById("clearAll");
 const todos = [];
 
-var task = "undone task ";
-var done = "task done ";
 var i = 0;
-var j = 0;
 
 addTaskBtn.addEventListener("click", addTask);
+window.addEventListener("load", retrieveTasks);
 
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
+function retrieveTasks() {
+    for (let key in localStorage) {
+        if (key.startsWith("task_")) {
+            const taskText = localStorage.getItem(key);
+            createTaskElement(taskText, key);
+            todos.push(taskText);
+        }
+    }
 }
 
 function addTask() {
     const taskText = taskInput.value.trim();
     if (taskText !== "") {
-        const listItem = document.createElement("li");
-        listItem.textContent = taskText;
-        taskList.appendChild(listItem);
-        taskInput.value = "";
-
-        const doneBtn = document.createElement("img");
-        doneBtn.setAttribute("src", "./Images/icons8-checkmark-50.png");
-        doneBtn.setAttribute('height', '18px');
-        doneBtn.setAttribute('width', '18px');
-        listItem.appendChild(doneBtn);
-        doneBtn.addEventListener("click", () => {
-            listItem.id = "taskDone";
-        });
-
-        const editBtn = document.createElement("img");
-        editBtn.setAttribute("src", "./Images/icons8-edit-file-50.png");
-        editBtn.setAttribute('height', '18px');
-        editBtn.setAttribute('width', '18px');
-        listItem.appendChild(editBtn);
-        editBtn.addEventListener("click", () => {
-            taskInput.value = listItem.textContent;
-            listItem.remove();
-        });
-
-        const deleteBtn = document.createElement("img");
-        deleteBtn.setAttribute("src", "./Images/icons8-delete-60.png");
-        deleteBtn.setAttribute('height', '18px');
-        deleteBtn.setAttribute('width', '18px');
-        listItem.appendChild(deleteBtn);
-        deleteBtn.addEventListener("click", () => {
-            listItem.remove();
-        });
-
-    // add to list
-    todos.push(taskText)
-    
+        createTaskElement(taskText, `task_${i}`);
+        localStorage.setItem(`task_${i}`, taskText);
+        i++;
+        todos.push(taskText);
     } else {
         alert("Veuillez entrer une tâche valide.");
     }
-
-    localStorage.setItem(task.concat(i), (taskText), i++);
-    clearAll.addEventListener("click", () => {
-        localStorage.clear();
-    });
+    taskInput.value = "";
 }
 
-// sort
-function sortItems() {
-    todos.sort((a, b) => a.localeCompare(b));
+function createTaskElement(taskText, key) {
+    const listItem = document.createElement("li");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    listItem.appendChild(checkbox);
 
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild)
+    const taskLabel = document.createElement("label");
+    taskLabel.textContent = taskText;
+    listItem.appendChild(taskLabel);
+
+    const editBtn = createButton("./Images/icons8-edit-file-50.png", '18px', '18px');
+    const deleteBtn = createButton("./Images/icons8-delete-60.png", '18px', '18px');
+
+    listItem.appendChild(editBtn);
+    listItem.appendChild(deleteBtn);
+
+    editBtn.addEventListener("click", () => {
+        taskInput.value = listItem.textContent;
+        listItem.remove();
+        localStorage.removeItem(key);
+    });
+
+    deleteBtn.addEventListener("click", () => {
+        listItem.remove();
+        localStorage.removeItem(key);
+        const index = todos.indexOf(taskText);
+        if (index > -1) {
+            todos.splice(index, 1);
+        }
+    });
+
+    checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+            taskLabel.style.textDecoration = "line-through";
+        } else {
+            taskLabel.style.textDecoration = "none";
+        }
+    });
+
+    taskList.appendChild(listItem);
+}
+
+function createButton(src, height, width) {
+    const button = document.createElement("img");
+    button.setAttribute("src", src);
+    button.setAttribute('height', height);
+    button.setAttribute('width', width);
+    return button;
+}
+
+clearAll.addEventListener("click", () => {
+    taskList.innerHTML = "";
+    for (let key in localStorage) {
+        if (key.startsWith("task_")) {
+            localStorage.removeItem(key);
+        }
     }
+    todos.length = 0;
+});
 
-    todos.forEach((todo) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = todo;
+const sidebarBtn = document.getElementById("sidebarToggle");
+const sidebar = document.querySelector(".sidebarEls");
 
-        taskList.appendChild(listItem);
-
-        // Add buttons for the new list item
-        const doneBtn = document.createElement("img");
-        doneBtn.setAttribute("src", "./Images/icons8-checkmark-50.png");
-        doneBtn.setAttribute('height', '18px');
-        doneBtn.setAttribute('width', '18px');
-        listItem.appendChild(doneBtn);
-
-        doneBtn.addEventListener("click", () => {
-            listItem.id = "taskDone";
-        });
-
-        const editBtn = document.createElement("img");
-        editBtn.setAttribute("src", "./Images/icons8-edit-file-50.png");
-        editBtn.setAttribute('height', '18px');
-        editBtn.setAttribute('width', '18px');
-        listItem.appendChild(editBtn);
-
-        editBtn.addEventListener("click", () => {
-            taskInput.value = listItem.textContent;
-            listItem.remove();
-        });
-
-        const deleteBtn = document.createElement("img");
-        deleteBtn.setAttribute("src", "./Images/icons8-delete-60.png");
-        deleteBtn.setAttribute('height', '18px');
-        deleteBtn.setAttribute('width', '18px');
-        listItem.appendChild(deleteBtn);
-
-        deleteBtn.addEventListener("click", () => {
-            listItem.remove();
-        });
-    });
+function toggleSidebar() {
+    if (sidebar.style.display === "none") {
+        sidebar.style.display = "block";
+    } else {
+        sidebar.style.display = "none";
+        sidebar.style.backgroundColor = "";
+    }
 }
+
+sidebarBtn.addEventListener("click", toggleSidebar);

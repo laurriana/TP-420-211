@@ -9,7 +9,6 @@
 }
 
 
-
 #wrapper {
   display: flex;
   align-items: center;
@@ -21,6 +20,13 @@
   text-align: center;
   font-family: "Jacquarda Bastarda 9", cursive;
 }
+
+h3.title {
+  font-size: 1.5em;
+  color: #ee8aa8;
+  text-shadow: 0 0 6px #fdadc5db;
+}
+
 /* buttons */
 .homepageBtns {
   background-color: #ee8aa8;
@@ -37,6 +43,13 @@
 
   font-family: "Pixelify Sans", sans-serif;
   letter-spacing: 0.1rem;
+
+  filter: brightness(1);
+}
+
+.homepageBtns:hover {
+  filter: brightness(1.127);
+  cursor: pointer;
 }
 
 p {
@@ -49,13 +62,19 @@ p {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #f753b84f;
+  background: #37373737;
   display: flex;
   justify-content: center;
   align-items: center;
 
   opacity: 0;
   pointer-events: none;
+}
+
+.popup-container.active {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.4s ease;
 }
 
 .popup-container .popup-box {
@@ -67,9 +86,13 @@ p {
   padding: 30px;
 }
 
-.popup-box #close-button {
-  width: 100%;
-  height: 45px;
+.popup-container.active .popup-box {
+  transition: 0.4s ease-in-out;
+  transition-delay: 0.25s;
+}
+
+.popup-box .popup-bottons {
+  padding: 10px 20px;
   background-color: lightpink;
   border: none;
   border-radius: 5px;
@@ -80,10 +103,51 @@ p {
   font-size: 16px;
   text-transform: uppercase;
   font-family: "Pixelify Sans", sans-serif;
-  margin-top: 1.27em;
+  margin: 1.27em 5px auto 5px;
+
+  transform: scale(1);
   transition: 0.22s ease-in-out;
 }
 
-.popup-box #close-button:hover {
+.popup-box .popup-bottons:hover {
   text-shadow: #ffffffc1 0px 0px 10px;
+  transform: scale(1.05);
+}
+
+/* form */
+.input-box input {
+  width: 60%;
+  height: 1.75em;
+  outline: none;
+  margin: 10px auto;
+  border: none;
+  border-bottom: 2px solid lightcoral;
+  background-color: #fff9f9;
+  text-align: center;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+#close-button {
+  position: absolute;
+  right: 8.25rem;
+
+  cursor: pointer;
+  color: #ee8aa8;
+  filter: brightness(1);
+  transform: scale(1);
+  transition: 0.22s ease-in-out;
+}
+
+#close-button:hover {
+  filter: brightness(1.25);
+  transform: scale(1.127);
+}
+
+/* invalid input */
+#invalid-input {
+  color: #fe6391;
+  font-size: 0.8em;
+  font-family: "Pixelify Sans", sans-serif;
+  margin: 20px auto 5px auto;
+  display: none;
 }

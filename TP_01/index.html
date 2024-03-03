@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>La liste des tâches</title>
-        <link rel="stylesheet" target=_blank href="./CSS/index.css">
-        
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La liste des tâches</title>
+    <link rel="stylesheet" target="_blank" href="./CSS/index.css" />
+    <script
+      src="https://kit.fontawesome.com/732bd9dba7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-    <body>
-<div id="wrapper">
-    <div id="divParent">
+  <body>
+    <div id="wrapper">
+      <div id="divParent">
         <h1 class="title">Welcome ♡</h1>
-        <button class="homepageBtns" onclick="openForm()">S'inscrire</button>
+        <button class="homepageBtns">S'inscrire</button>
 
-        <button class="homepageBtns" onclick="openForm()">Se connecter</button>
-    </div>
+        <button class="homepageBtns" onclick="pastUserConnect()">
+          Se connecter
+        </button>
+      </div>
 
-    <div class="popup-container">
+      <div class="popup-container">
         <div class="popup-box">
-            <h3 class="title">Login / Register</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum nisi inventore aut doloribus odit neque rem. Minima qui, labore nesciunt, tempore necessitatibus nam saepe voluptate inventore, dicta excepturi optio voluptatibus!</p>
-            <button id="close-button" onclick="closeForm()">Close</button>
+          <i class="fa-solid fa-arrow-right-from-bracket" id="close-button"></i>
+          <h3 class="title">Login / Register</h3>
+
+          <form id="main-form">
+            <div class="input-box">
+              <input
+                type="text" id="username-input"
+                placeholder="username" required
+              />
+            </div>
+
+            <div class="input-box">
+              <input type="password" id="password-input" 
+              placeholder="password" required
+              />
+            </div>
+
+            <div id="invalid-input">
+              username or password incorrect <br />
+              pls try again ☹︎ you have <span id="error-count">4</span> attempts
+              left
+            </div>
+
+            <button id="register-button" class="popup-bottons">Register</button>
+
+            <button id="login-button" class="popup-bottons">Login</button>
+          </form>
         </div>
+      </div>
+
+      <script src="./JavaScript/index.js"></script>
     </div>
-
-
-    <script src="./JavaScript/index.js"></script>
-</div>
-    </body>
+  </body>
 </html>

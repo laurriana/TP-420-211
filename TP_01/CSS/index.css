@@ -8,12 +8,16 @@
   font-display: swap;
 }
 
-
 #wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
-  height: 100vh;
   justify-content: center;
+  background-color: #ffc3d539;
 }
 
 .title {
@@ -23,8 +27,31 @@
 
 h3.title {
   font-size: 1.5em;
-  color: #ee8aa8;
-  text-shadow: 0 0 6px #fdadc5db;
+  color: #ffa0bd;
+}
+
+#float {
+  margin-bottom: 1.27em;
+
+  text-shadow: #ffaac4 0px 0px 8px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
 }
 
 /* buttons */
@@ -45,11 +72,13 @@ h3.title {
   letter-spacing: 0.1rem;
 
   filter: brightness(1);
+  transform: scale(1);
 }
 
 .homepageBtns:hover {
   filter: brightness(1.127);
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 p {
@@ -151,3 +180,4 @@ p {
   margin: 20px auto 5px auto;
   display: none;
 }
+

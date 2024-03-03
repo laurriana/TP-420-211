@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" target="_blank" href="./CSS/style.css" />
+    <script
+      src="https://kit.fontawesome.com/732bd9dba7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Todo List</title>
-        <link rel="stylesheet" target=_blank href="./CSS/style.css">
-    </head>
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <i class="fa-solid fa-bars" id="sidebarToggle"></i>
+        <ul class="sidebarEls">
+          <li><a href="#">lorem ipsum</a></li>
+          <li><a href="#">lorem ipsum</a></li>
+          <li><a href="#">lorem ipsum</a></li>
+        </ul>
+      </nav>
 
-    <body>
-        <!-------------------------------------- Sidebar --------------------------------------->
-        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-            <button onclick="w3_close()">Close &times;</button>
-        <div id="div1"> <a href="#" class="w3-bar-item button">Groupe de tâches "1"</a></div>
-        <div id="div2"><a href="#" class="w3-bar-item button">Groupe de tâches "2"</a></div>
-        <div id="div3"><a href="#" class="w3-bar-item button">Groupe de tâches "3"</a></div>
-        </div>
+      <div class="centrerhaut">
+        <h1 id="float">task list</h1>
+        <input type="text" id="taskInput" placeholder="Nouvelle tâche..." />
+        <button id="addTask">Ajouter</button>
+      </div>
+      <ul id="taskList"></ul>
+      <div id="underBar">
+        <button id="clearAll" class="lowButtons">Effacer LocalStorage</button>
 
-        <!-------------------------------------- Bouton de la barre latérale --------------------------------------->
-        <div class="w3-teal">
-            <button class="button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-            <div class="w3-container">
-            </div>
-        </div>
+        <button id="sort" class="lowButtons" onclick="sortTasks()">
+          Trier
+        </button>
+      </div>
+    </div>
 
-        <!-------------------------------------- Listes des tâches --------------------------------------->
-        <div class="container">
-            <div class="centrerhaut">        
-            <h1>task list</h1>
-            <input type="text" id="taskInput" placeholder="Nouvelle tâche...">
-            <button id="addTask">Ajouter</button>
-        </div>
-            <ul id="taskList"></ul>
-            <div id="underBar">
-                <button id="clearAll" class="lowButtons">Effacer LocalStorage</button>
-
-                <button id="sort" class="lowButtons" onclick="sortItems()">Trier</button>
-        </div>
-        </div>
-
-
-        <script src="./JavaScript/script.js"></script>
-    </body>
-
+    <script src="./JavaScript/script.js"></script>
+  </body>
 </html>
-

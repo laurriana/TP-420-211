@@ -10,7 +10,6 @@ closeBtn.onclick = () => {
   popupContainer.classList.remove("active");
 };
 
-// sign up form (my head hurts from this ouchiiii im so tired)
 const registerBtn = document.getElementById("register-button");
 const loginBtn = document.getElementById("login-button");
 const usernameInput = document.getElementById("username-input").value;
@@ -64,8 +63,12 @@ loginBtn.onclick = (event) => {
   }
 };
 
-document.addEventListener('keydown', event => {
-  if (event.key === "Escape") {
-    popupContainer.classList.remove("active");
+
+const connectBtn = document.getElementById("connexion");
+
+connectBtn.onclick = (event) => {
+  msg = confirm("redirection vers la page d'accueil...");
+  if(msg == true) {
+    window.location.href = "accueil.html";
   }
-});
+}
